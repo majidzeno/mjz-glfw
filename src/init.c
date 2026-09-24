@@ -155,7 +155,7 @@ size_t _glfwEncodeUTF8(char* s, uint32_t codepoint)
         s[count++] = (char) codepoint;
     else if (codepoint < 0x800)
     {
-        s[count++] = (codepoint >> 6) | 0xc0;
+        s[count++] = (char)((codepoint >> 6) | 0xc0);
         s[count++] = (codepoint & 0x3f) | 0x80;
     }
     else if (codepoint < 0x10000)
